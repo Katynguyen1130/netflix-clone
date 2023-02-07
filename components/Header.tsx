@@ -4,6 +4,7 @@ import Link from "next/link";
 import { images } from "../assets/logo/images";
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
+import BasicMenu from "./BasicMenu";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,13 +30,9 @@ function Header() {
       <div className="flex justify-between w-full">
         <div className="flex items-center space-x-2 md:space-x-10 h-full w-full">
           <div className="w-[100px]">
-            <Image
-              src={images.logo}
-              alt={""}
-              className="cursor-pointer"
-              priority={true}
-            />
+            <Image src={images.logo} alt={""} className="cursor-pointer" priority={true} />
           </div>
+          <BasicMenu />
 
           <ul className="  flex invisible md:visible  space-x-4  ">
             <li className="headerLink">Home</li>

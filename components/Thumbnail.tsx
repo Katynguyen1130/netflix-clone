@@ -4,9 +4,10 @@ import { movieState } from "../atoms/modalAtom";
 
 import { Movie } from "../typings";
 import { modalState } from "./../atoms/modalAtom";
+import { DocumentData } from "firebase/firestore";
 
 interface Props {
-  movie: Movie;
+  movie: Movie | DocumentData;
 }
 
 function Thumbnail({ movie }: Props) {
@@ -20,14 +21,7 @@ function Thumbnail({ movie }: Props) {
         setShowModal(true);
       }}
     >
-      <Image
-        src={`https://image.tmdb.org/t/p/w500${
-          movie.backdrop_path || movie.poster_path
-        }`}
-        alt={""}
-        className="rounded-sm object-cover md:rounded"
-        layout="fill"
-      />
+      <Image src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`} alt={""} className="rounded-sm object-cover md:rounded" layout="fill" />
     </div>
   );
 }
